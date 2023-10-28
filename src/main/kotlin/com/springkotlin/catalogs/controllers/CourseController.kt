@@ -15,33 +15,33 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("v1/courses")
 
-class CourseController(val courseServicies: ICourseService) {
+class CourseController(val courseServices: ICourseService) {
 
     @GetMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
     fun index(): List<CourseDTO>
     {
-        return courseServicies.getAll();
+        return courseServices.getAll()
     }
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     fun addCourse(@RequestBody courseDTO: CourseDTO): CourseDTO
     {
-        return courseServicies.add(courseDTO);
+        return courseServices.add(courseDTO)
     }
 
     @PatchMapping("/{id}/update")
     @ResponseStatus(HttpStatus.OK)
     fun updateCourse(@PathVariable id: Int, @RequestBody courseDTO: CourseDTO): CourseDTO
     {
-        return courseServicies.update(id, courseDTO);
+        return courseServices.update(id, courseDTO)
     }
 
     @DeleteMapping("/{id}/delete")
     @ResponseStatus(HttpStatus.OK)
     fun deleteCourse(@PathVariable id: Int)
     {
-        return courseServicies.delete(id);
+        return courseServices.delete(id)
     }
 }

@@ -1,4 +1,4 @@
-package edu.utvt.catalogs.services
+package com.springkotlin.catalogs.services
 
 import com.springkotlin.catalogs.repositories.implementation.IStudentService
 import com.springkotlin.catalogs.dtos.StudentDTO

@@ -6,14 +6,14 @@ import mu.KLogging
 import org.springframework.stereotype.Service
 
 @Service
-class CourseService {
-    companion object:KLogging()
+class CourseRepositoryService {
+    companion object: KLogging()
 
-    fun add(courseDTO: CourseDTO):CourseDTO{
-        var courseEntity = courseDTO.let { Course(it.id,it.name,it.category) };
+    fun add(courseDTO: CourseDTO): CourseDTO {
+        val courseEntity = courseDTO.let { Course(it.id, it.name, it.category) }
 
         return courseEntity.let {
-            CourseDTO(it.id,it.name,it.category)
+            CourseDTO(it.id, it.name, it.category)
         }
     }
 }
